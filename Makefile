@@ -1,5 +1,5 @@
 lint: 
-	docker run --volume "$(shell pwd):/workspace" --workdir /workspace yoheimuta/protolint lint proto -plugin ./example/plugin_example
+	docker run --volume "$(shell pwd):/workspace" --workdir /workspace yoheimuta/protolint lint -plugin ./example/plugin_example proto 
 
 lintb:
 	protolint -plugin ./example/plugin_example ./proto

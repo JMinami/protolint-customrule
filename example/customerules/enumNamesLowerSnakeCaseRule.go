@@ -65,13 +65,13 @@ func (v *enumNamesLowerSnakeCaseVisitor) VisitExtend(e *parser.Extend) bool {
 }
 
 func (v *enumNamesLowerSnakeCaseVisitor) VisitField(f *parser.Field) bool {
-	v.AddFailuref(f.Meta.LastPos, "type %s, %s", f.Type, f.FieldName)
+	v.AddFailuref(f.Meta.Pos, "type %s, %s", f.Type, f.FieldName)
 	for _, c := range f.Comments {
-		v.AddFailuref(f.Meta.LastPos, "comment, %s", c.Raw)
+		v.AddFailuref(f.Meta.Pos, "comment, %s", c.Raw)
 	}
 	// v.AddFailuref(f.Meta.LastPos, "inline comment, %s", f.InlineComment.Raw)
 	if f.InlineComment != nil {
-		v.AddFailuref(f.Meta.LastPos, "inline comment, %s", f.InlineComment.Raw)
+		v.AddFailuref(f.Meta.Pos, "inline comment, %s", f.InlineComment.Raw)
 	}
 	return false
 }
